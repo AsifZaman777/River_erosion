@@ -1,0 +1,356 @@
+split,pair,year_t0,month_t0,year_t1,month_t1,itype,index,cloud_t0,cloud_t1,water_t0,water_t1,px_km2,erosion_km2,deposit_km2,net_km2,change_ratio,water_t0_km2,water_t1_km2,shift_m,shift_dir,width_chg_m,valid_pct,rain_total,rain_max,rain_days,soil,temp_c,drought_idx,drought_lvl,rain_pct_normal,rule_risk,rule_conf,vlm_risk,vlm_conf,vlm_cause,vlm_erosion,vlm_channel,vlm_forecast,parse_strat,fallback,vlm_raw
+TEST_2023_2025,2023_Jan→2023_Feb,2023,1,2023,2,RGB_EXPORT,mNDWI_RGB,0.05,0.031,0.22,0.321,0.0008264235607305981,13.579,8.1345,5.4445,0.4564,11.9303,17.3747,1961.8,WN,739.7,0.942,8.3,7.0,1,0.535,20.0,0.186,NORMAL,103.7,HIGH,0.85,HIGH,0.95,Rainfall pulse.,"Extensive bank loss, new sandbars.",1962m centroid shift west.,High risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""1962m centroid shift west."",
+  ""cause"": ""Rainfall pulse."",
+  ""forecast"": ""High risk continues.""
+}
+```
+
+
+```python
+import numpy as np
+import pandas as pd
+from scipy.spatial.distance import great_circle
+
+def classify_erosion_risk(image1, image2):
+    # Load the i"
+TEST_2023_2025,2023_Feb→2023_Mar,2023,2,2023,3,RGB_EXPORT,mNDWI_RGB,0.031,0.046,0.321,0.453,0.0008264235607305981,9.1931,1.8157,7.3775,0.4346,16.9747,24.3522,920.8,ES,970.7,0.934,87.2,20.3,13,0.461,24.2,0.216,NORMAL,581.3,HIGH,0.85,HIGH,0.95,Rainfall pulse.,"Extensive bank loss, new sandbars.",921m centroid shift west.,High risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""921m centroid shift west."",
+  ""cause"": ""Rainfall pulse."",
+  ""forecast"": ""High risk continues.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the image d"
+TEST_2023_2025,2023_Mar→2023_Apr,2023,3,2023,4,RGB_EXPORT,mNDWI_RGB,0.046,0.04,0.453,0.367,0.0008264235607305981,3.1049,8.2188,-5.1139,-0.21,24.3522,19.2383,1030.6,WN,-629.0,0.925,239.9,48.6,27,0.488,27.6,0.205,NORMAL,631.3,HIGH,0.85,HIGH,0.95,Rainfall pulse.,"Extensive bank loss, new sandbars.",1031m centroid shift west.,High risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""1031m centroid shift west."",
+  ""cause"": ""Rainfall pulse."",
+  ""forecast"": ""High risk continues.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the image "
+TEST_2023_2025,2023_Apr→2023_May,2023,4,2023,5,RGB_EXPORT,mNDWI_RGB,0.04,0.042,0.367,0.18,0.0008264235607305981,3.9825,14.0095,-10.027,-0.5089,19.7028,9.6758,714.1,WS,-1378.9,0.944,401.9,52.2,34,0.547,29.2,0.181,NORMAL,490.1,HIGH,0.85,HIGH,0.95,Rainfall pulse.,"Extensive bank loss, new sandbars.",714m centroid shift west.,High risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""714m centroid shift west."",
+  ""cause"": ""Rainfall pulse."",
+  ""forecast"": ""High risk continues.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the image d"
+TEST_2023_2025,2023_May→2023_Jun,2023,5,2023,6,RGB_EXPORT,mNDWI_RGB,0.042,0.086,0.18,0.2,0.0008264235607305981,8.0262,5.942,2.0842,0.2397,8.694,10.7782,1317.4,ES,146.0,0.876,634.4,52.2,43,0.644,29.3,0.142,NORMAL,323.7,HIGH,0.85,HIGH,0.95,Rainfall pulse.,"Extensive bank loss, new sandbars.",1317m centroid shift west.,High risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""1317m centroid shift west."",
+  ""cause"": ""Rainfall pulse."",
+  ""forecast"": ""High risk continues.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the image "
+TEST_2023_2025,2023_Jun→2023_Jul,2023,6,2023,7,RGB_EXPORT,mNDWI_RGB,0.086,0.483,0.2,0.51,0.0008264235607305981,17.5598,0.4851,17.0747,2.8072,6.0825,23.1572,1170.5,EN,2283.3,0.468,638.0,40.5,49,0.805,29.0,0.078,WET,200.6,HIGH,0.85,HIGH,0.95,Rainfall pulse.,"Extensive bank loss, new sandbars.",1170m centroid shift west.,High risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""1170m centroid shift west."",
+  ""cause"": ""Rainfall pulse."",
+  ""forecast"": ""High risk continues.""
+}
+```
+
+
+```python
+import numpy as np
+import pandas as pd
+from scipy.spatial.distance import great_circle
+
+def classify_erosion_risk(image1, image2):
+    # Load the i"
+TEST_2023_2025,2023_Jul→2023_Aug,2023,7,2023,8,RGB_EXPORT,mNDWI_RGB,0.483,0.245,0.51,0.689,0.0008264235607305981,1.7396,1.7338,0.0058,0.0003,18.7656,18.7714,61.3,EN,1319.4,0.386,766.8,74.9,55,0.896,28.8,0.042,WET,201.8,MEDIUM,0.75,HIGH,0.95,Rainfall pulse.,"Extensive bank loss, new sandbars.",61m centroid shift west.,High risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""61m centroid shift west."",
+  ""cause"": ""Rainfall pulse."",
+  ""forecast"": ""High risk continues.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the image da"
+TEST_2023_2025,2024_Mar→2024_Apr,2024,3,2024,4,RGB_EXPORT,mNDWI_RGB,0.049,0.035,0.26,0.388,0.0008264235607305981,7.6122,0.4529,7.1593,0.5203,13.7608,20.9201,245.8,WS,941.1,0.92,160.5,14.6,21,0.509,28.0,0.196,NORMAL,422.4,HIGH,0.85,HIGH,0.95,"Rainfall anomaly, soil degradation, drought.","Extensive bank loss, new sandbars.",246m centroid shift west.,,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""246m centroid shift west."",
+  ""cause"": ""Rainfall anomaly, soil degradation, drought.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the image data
+    d"
+TEST_2023_2025,2024_Apr→2024_May,2024,4,2024,5,RGB_EXPORT,mNDWI_RGB,0.035,0.053,0.388,0.219,0.0008264235607305981,7.3957,16.0029,-8.6072,-0.4302,20.0077,11.4005,2556.5,ES,-1244.0,0.917,476.1,103.5,28,0.528,30.4,0.189,NORMAL,580.6,HIGH,0.85,HIGH,0.95,Rainfall pulse.,"Extensive bank loss, new sandbars.",2556m centroid shift west.,High risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""2556m centroid shift west."",
+  ""cause"": ""Rainfall pulse."",
+  ""forecast"": ""High risk continues.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the image "
+TEST_2023_2025,2024_May→2024_Jun,2024,5,2024,6,RGB_EXPORT,mNDWI_RGB,0.053,0.193,0.219,0.248,0.0008264235607305981,8.5336,5.4726,3.0611,0.3325,9.2072,12.2683,1150.4,WN,214.4,0.773,731.7,103.5,53,0.694,29.6,0.122,NORMAL,373.3,HIGH,0.85,HIGH,0.95,Rainfall pulse.,"Extensive bank loss, new sandbars.",1150m centroid shift west.,High risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""1150m centroid shift west."",
+  ""cause"": ""Rainfall pulse."",
+  ""forecast"": ""High risk continues.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the image "
+TEST_2023_2025,2024_Jun→2024_Jul,2024,6,2024,7,RGB_EXPORT,mNDWI_RGB,0.193,0.578,0.248,0.336,0.0008264235607305981,8.7617,0.4835,8.2783,1.2852,6.4411,14.7194,948.9,WS,649.9,0.352,643.4,52.7,57,0.856,29.1,0.058,WET,202.3,HIGH,0.85,HIGH,0.95,Rainfall pulse.,"Extensive bank loss, new sandbars.",949m centroid shift west.,High risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""949m centroid shift west."",
+  ""cause"": ""Rainfall pulse."",
+  ""forecast"": ""High risk continues.""
+}
+```
+
+
+```python
+import numpy as np
+import pandas as pd
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the image d"
+TEST_2023_2025,2024_Jul→2024_Aug,2024,7,2024,8,RGB_EXPORT,mNDWI_RGB,0.578,0.094,0.336,0.385,0.0008264235607305981,0.1876,7.1163,-6.9287,-0.4122,16.8111,9.8824,181.1,WS,356.6,0.392,1082.5,103.8,59,0.92,28.5,0.032,WET,284.9,LOW,0.65,LOW,0.85,Drought conditions continue.,"Minimal change, stable vegetation.",No significant channel changes.,Low risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""LOW"",
+  ""confidence"": 0.85,
+  ""erosion_evidence"": ""Minimal change, stable vegetation."",
+  ""channel_evidence"": ""No significant channel changes."",
+  ""cause"": ""Drought conditions continue."",
+  ""forecast"": ""Low risk continues.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    #"
+TEST_2023_2025,2025_Jan→2025_Feb,2025,1,2025,2,RGB_EXPORT,mNDWI_RGB,0.042,0.043,0.267,0.721,0.0008264235607305981,23.3002,0.4851,22.8151,1.5815,14.426,37.2411,832.2,EN,3340.3,0.943,4.5,2.4,2,0.551,20.1,0.442,MILD_DROUGHT,56.2,HIGH,0.85,HIGH,0.95,Drought conditions leading to reduced water flow and increased sediment transport.,"Extensive bank loss, new sandbars.",832m centroid shift west.,,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""832m centroid shift west."",
+  ""cause"": ""Drought conditions leading to reduced water flow and increased sediment transport.""
+}
+```
+
+
+```python
+import numpy as np
+import pandas as pd
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, im"
+TEST_2023_2025,2025_Feb→2025_Mar,2025,2,2025,3,RGB_EXPORT,mNDWI_RGB,0.043,0.052,0.721,0.251,0.0008264235607305981,0.3727,23.3225,-22.9498,-0.628,36.5444,13.5947,634.6,WS,-3455.5,0.93,5.3,2.4,2,0.456,24.6,0.606,MODERATE_DROUGHT,35.3,HIGH,0.85,LOW,0.95,Drought conditions continue.,"Minimal change, stable vegetation.",No significant channel changes.,Low risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""LOW"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Minimal change, stable vegetation."",
+  ""channel_evidence"": ""No significant channel changes."",
+  ""cause"": ""Drought conditions continue."",
+  ""forecast"": ""Low risk continues.""
+}
+```
+
+
+```python
+import numpy as np
+import pandas as pd
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    #"
+TEST_2023_2025,2025_Mar→2025_Apr,2025,3,2025,4,RGB_EXPORT,mNDWI_RGB,0.052,0.078,0.251,0.298,0.0008264235607305981,5.1784,2.6247,2.5536,0.1878,13.5988,16.1524,841.4,ES,347.9,0.912,137.3,22.7,16,0.411,28.4,0.236,NORMAL,361.3,HIGH,0.85,HIGH,0.95,"Rainfall anomaly, soil degradation, drought.","Extensive bank loss, new sandbars.",841m centroid shift west.,,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""841m centroid shift west."",
+  ""cause"": ""Rainfall anomaly, soil degradation, drought.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the image data
+    d"
+TEST_2023_2025,2025_Apr→2025_May,2025,4,2025,5,RGB_EXPORT,mNDWI_RGB,0.078,0.064,0.298,0.894,0.0008264235607305981,31.0082,2.2933,28.7149,1.8808,15.2673,43.9823,143.7,EN,4385.9,0.862,450.6,34.5,42,0.488,29.5,0.205,NORMAL,549.5,HIGH,0.85,HIGH,0.95,"Rainfall anomaly, soil degradation, drought stress.","Extensive bank loss, new sandbars.",144m centroid shift west.,High risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.95,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""144m centroid shift west."",
+  ""cause"": ""Rainfall anomaly, soil degradation, drought stress."",
+  ""forecast"": ""High risk continues.""
+}
+```
+
+
+```python
+import numpy as np
+import pandas as pd
+from scipy.spatial.distance import cdist
+from scipy.stats import ranksums"
+TEST_2023_2025,2025_May→2025_Jun,2025,5,2025,6,RGB_EXPORT,mNDWI_RGB,0.064,0.143,0.894,0.189,0.0008264235607305981,0.0529,32.3743,-32.3214,-0.7712,41.9088,9.5873,798.9,EN,-5192.2,0.813,860.7,106.1,56,0.737,29.1,0.105,NORMAL,439.1,HIGH,0.85,LOW,0.99,Drought conditions continue.,"Minimal change, stable vegetation.",No significant channel changes.,Low risk continues.,first_obj,False,"```json
+{
+  ""risk_level"": ""LOW"",
+  ""confidence"": 0.99,
+  ""erosion_evidence"": ""Minimal change, stable vegetation."",
+  ""channel_evidence"": ""No significant channel changes."",
+  ""cause"": ""Drought conditions continue."",
+  ""forecast"": ""Low risk continues.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    #"
+TEST_2023_2025,2025_Jun→2025_Jul,2025,6,2025,7,RGB_EXPORT,mNDWI_RGB,0.143,0.132,0.189,0.404,0.0008264235607305981,10.8328,1.8223,9.0105,0.9811,9.184,18.1945,436.2,WS,1583.7,0.747,978.5,77.5,58,0.924,28.5,0.03,WET,307.7,HIGH,0.85,HIGH,0.99,"Rainfall anomaly, soil moisture stress, drought conditions.","Extensive bank loss, new sandbars.",436m centroid shift west.,,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.99,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""436m centroid shift west."",
+  ""cause"": ""Rainfall anomaly, soil moisture stress, drought conditions.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the i"
+TEST_2023_2025,2025_Jul→2025_Aug,2025,7,2025,8,RGB_EXPORT,mNDWI_RGB,0.132,0.045,0.404,0.351,0.0008264235607305981,3.723,7.6419,-3.9189,-0.1899,20.6383,16.7194,815.6,EN,-387.0,0.831,1030.2,77.5,57,0.953,28.2,0.019,WET,271.1,HIGH,0.85,HIGH,0.99,"Rainfall anomaly, soil moisture stress, drought conditions.","Extensive bank loss, new sandbars.",816m centroid shift west.,,first_obj,False,"```json
+{
+  ""risk_level"": ""HIGH"",
+  ""confidence"": 0.99,
+  ""erosion_evidence"": ""Extensive bank loss, new sandbars."",
+  ""channel_evidence"": ""816m centroid shift west."",
+  ""cause"": ""Rainfall anomaly, soil moisture stress, drought conditions.""
+}
+```
+
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics import accuracy_score
+
+def classify_erosion_risk(image1, image2):
+    # Load the i"
